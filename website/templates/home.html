@@ -1,0 +1,31 @@
+<!--This file to overwrite block in base file
+for reference goto line 24 in base.html file.-->
+<!--Overwritting-->
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+
+<!--overriding the contact block in base fole line 51-->
+<!--creating note area-->
+{% block content %}
+<h1 align="center" style="font-family:'Times New Roman', Times, serif">EVERYDAY NOTES</h1>
+
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+        {{ note.data }}
+        <!--creating button to delete notes-->
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+
+
+<form method="POST">
+    <textarea name="Note",id="Note", class="form-control", placeholder="Create your note here."></textarea>
+    <br />
+        <div align="center">
+            <button type="submit", class="btn btn-primary">Add my Note</button>
+        </div>
+</form>
+{% endblock %}

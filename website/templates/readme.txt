@@ -1,0 +1,1 @@
+This folder contains templates that needs to be used.
